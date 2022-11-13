@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroesViewModel: UIViewController {
+class HeroesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
