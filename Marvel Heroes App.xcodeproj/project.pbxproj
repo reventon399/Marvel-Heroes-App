@@ -12,6 +12,8 @@
 		911EECC4292008D900AE2F61 /* MarvelHeroesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EECC3292008D900AE2F61 /* MarvelHeroesModel.swift */; };
 		911EECC72920092300AE2F61 /* CustomHeroesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EECC62920092300AE2F61 /* CustomHeroesCell.swift */; };
 		915423832922B99300B6833F /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915423822922B99300B6833F /* ApiKeys.swift */; };
+		915423852922C22500B6833F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915423842922C22500B6833F /* Parser.swift */; };
+		915423892922C58500B6833F /* String + MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915423882922C58500B6833F /* String + MD5.swift */; };
 		9167BBA2291EAAF400B8AC5B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167BBA1291EAAF400B8AC5B /* AppDelegate.swift */; };
 		9167BBA4291EAAF400B8AC5B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167BBA3291EAAF400B8AC5B /* SceneDelegate.swift */; };
 		9167BBA6291EAAF400B8AC5B /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167BBA5291EAAF400B8AC5B /* HeroesViewController.swift */; };
@@ -24,6 +26,8 @@
 		911EECC3292008D900AE2F61 /* MarvelHeroesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesModel.swift; sourceTree = "<group>"; };
 		911EECC62920092300AE2F61 /* CustomHeroesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeroesCell.swift; sourceTree = "<group>"; };
 		915423822922B99300B6833F /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
+		915423842922C22500B6833F /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		915423882922C58500B6833F /* String + MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + MD5.swift"; sourceTree = "<group>"; };
 		9167BB9E291EAAF400B8AC5B /* Marvel Heroes App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Marvel Heroes App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9167BBA1291EAAF400B8AC5B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9167BBA3291EAAF400B8AC5B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		911EECC0292008AF00AE2F61 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				915423842922C22500B6833F /* Parser.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -130,6 +135,21 @@
 			path = "Api keys";
 			sourceTree = "<group>";
 		};
+		915423862922C4D600B6833F /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		915423872922C55B00B6833F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				915423882922C58500B6833F /* String + MD5.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		9167BB95291EAAF300B8AC5B = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +171,8 @@
 		9167BBA0291EAAF400B8AC5B /* Marvel Heroes App */ = {
 			isa = PBXGroup;
 			children = (
+				915423872922C55B00B6833F /* Extensions */,
+				915423862922C4D600B6833F /* NetworkManager */,
 				915423812922B97D00B6833F /* Api keys */,
 				911EECC2292008C300AE2F61 /* Models */,
 				911EECC1292008BE00AE2F61 /* Views */,
@@ -286,7 +308,9 @@
 				915423832922B99300B6833F /* ApiKeys.swift in Sources */,
 				9167BBA2291EAAF400B8AC5B /* AppDelegate.swift in Sources */,
 				9167BBA4291EAAF400B8AC5B /* SceneDelegate.swift in Sources */,
+				915423892922C58500B6833F /* String + MD5.swift in Sources */,
 				911EECC72920092300AE2F61 /* CustomHeroesCell.swift in Sources */,
+				915423852922C22500B6833F /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
