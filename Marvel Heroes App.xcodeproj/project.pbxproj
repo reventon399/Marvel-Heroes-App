@@ -19,6 +19,7 @@
 		9167BBAB291EAB1000B8AC5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9167BBAA291EAB1000B8AC5B /* Assets.xcassets */; };
 		9167BBAE291EAB1000B8AC5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9167BBAC291EAB1000B8AC5B /* LaunchScreen.storyboard */; };
 		91EC9B78292E3F790048777C /* HeroesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC9B77292E3F790048777C /* HeroesCustomTableViewCell.swift */; };
+		91EC9B7B292E46D60048777C /* ImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC9B7A292E46D60048777C /* ImageSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		9167BBAD291EAB1000B8AC5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9167BBAF291EAB1000B8AC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		91EC9B77292E3F790048777C /* HeroesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCustomTableViewCell.swift; sourceTree = "<group>"; };
+		91EC9B7A292E46D60048777C /* ImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSize.swift; sourceTree = "<group>"; };
 		AC633049C483196530754AFE /* libPods-Marvel Heroes App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Marvel Heroes App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0BE9E6EA67595DA8F66728F /* Pods-Marvel Heroes App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel Heroes App.debug.xcconfig"; path = "Target Support Files/Pods-Marvel Heroes App/Pods-Marvel Heroes App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 		9167BBA0291EAAF400B8AC5B /* Marvel Heroes App */ = {
 			isa = PBXGroup;
 			children = (
+				91EC9B79292E46B80048777C /* Enum */,
 				911EECBF292005F700AE2F61 /* App */,
 				915423862922C4D600B6833F /* NetworkManager */,
 				91EC9B76292E3E6C0048777C /* Main Module */,
@@ -190,6 +193,14 @@
 				911EECC0292008AF00AE2F61 /* ViewModel */,
 			);
 			path = "Main Module";
+			sourceTree = "<group>";
+		};
+		91EC9B79292E46B80048777C /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				91EC9B7A292E46D60048777C /* ImageSize.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 		A52CCE7E8C9B9A05A15E139A /* Frameworks */ = {
@@ -315,6 +326,7 @@
 				9167BBA6291EAAF400B8AC5B /* HeroesViewController.swift in Sources */,
 				915423832922B99300B6833F /* ApiKeys.swift in Sources */,
 				9167BBA2291EAAF400B8AC5B /* AppDelegate.swift in Sources */,
+				91EC9B7B292E46D60048777C /* ImageSize.swift in Sources */,
 				9167BBA4291EAAF400B8AC5B /* SceneDelegate.swift in Sources */,
 				915423892922C58500B6833F /* String + MD5.swift in Sources */,
 				91EC9B78292E3F790048777C /* HeroesCustomTableViewCell.swift in Sources */,
