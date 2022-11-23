@@ -10,7 +10,6 @@
 		7DDBCE36621B2D7532004FC3 /* libPods-Marvel Heroes App.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC633049C483196530754AFE /* libPods-Marvel Heroes App.a */; };
 		911EECBB2920008C00AE2F61 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 911EECBA2920008C00AE2F61 /* SnapKit */; };
 		911EECC4292008D900AE2F61 /* MarvelHeroesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EECC3292008D900AE2F61 /* MarvelHeroesModel.swift */; };
-		911EECC72920092300AE2F61 /* CustomHeroesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911EECC62920092300AE2F61 /* CustomHeroesCell.swift */; };
 		915423832922B99300B6833F /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915423822922B99300B6833F /* ApiKeys.swift */; };
 		915423852922C22500B6833F /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915423842922C22500B6833F /* Parser.swift */; };
 		915423892922C58500B6833F /* String + MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915423882922C58500B6833F /* String + MD5.swift */; };
@@ -19,12 +18,12 @@
 		9167BBA6291EAAF400B8AC5B /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9167BBA5291EAAF400B8AC5B /* HeroesViewController.swift */; };
 		9167BBAB291EAB1000B8AC5B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9167BBAA291EAB1000B8AC5B /* Assets.xcassets */; };
 		9167BBAE291EAB1000B8AC5B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9167BBAC291EAB1000B8AC5B /* LaunchScreen.storyboard */; };
+		91EC9B78292E3F790048777C /* HeroesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EC9B77292E3F790048777C /* HeroesCustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E1DE1DAE7B7E36AB3299E3E /* Pods-Marvel Heroes App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel Heroes App.release.xcconfig"; path = "Target Support Files/Pods-Marvel Heroes App/Pods-Marvel Heroes App.release.xcconfig"; sourceTree = "<group>"; };
 		911EECC3292008D900AE2F61 /* MarvelHeroesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesModel.swift; sourceTree = "<group>"; };
-		911EECC62920092300AE2F61 /* CustomHeroesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHeroesCell.swift; sourceTree = "<group>"; };
 		915423822922B99300B6833F /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		915423842922C22500B6833F /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		915423882922C58500B6833F /* String + MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + MD5.swift"; sourceTree = "<group>"; };
@@ -35,6 +34,7 @@
 		9167BBAA291EAB1000B8AC5B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9167BBAD291EAB1000B8AC5B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9167BBAF291EAB1000B8AC5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91EC9B77292E3F790048777C /* HeroesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCustomTableViewCell.swift; sourceTree = "<group>"; };
 		AC633049C483196530754AFE /* libPods-Marvel Heroes App.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Marvel Heroes App.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0BE9E6EA67595DA8F66728F /* Pods-Marvel Heroes App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Marvel Heroes App.debug.xcconfig"; path = "Target Support Files/Pods-Marvel Heroes App/Pods-Marvel Heroes App.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,6 +55,7 @@
 		911EECBC292005AD00AE2F61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				911EECBE292005D500AE2F61 /* Sources */,
 				9167BBAA291EAB1000B8AC5B /* Assets.xcassets */,
 				911EECBD292005BC00AE2F61 /* Configuration */,
 			);
@@ -86,35 +87,35 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		911EECC0292008AF00AE2F61 /* ViewModels */ = {
+		911EECC0292008AF00AE2F61 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				915423842922C22500B6833F /* Parser.swift */,
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		911EECC1292008BE00AE2F61 /* Views */ = {
+		911EECC1292008BE00AE2F61 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				9154238029200EF400B6833F /* Controllers */,
 				9154237F29200EE500B6833F /* Cells */,
 			);
-			path = Views;
+			path = View;
 			sourceTree = "<group>";
 		};
-		911EECC2292008C300AE2F61 /* Models */ = {
+		911EECC2292008C300AE2F61 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				911EECC3292008D900AE2F61 /* MarvelHeroesModel.swift */,
 			);
-			path = Models;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		9154237F29200EE500B6833F /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				911EECC62920092300AE2F61 /* CustomHeroesCell.swift */,
+				91EC9B77292E3F790048777C /* HeroesCustomTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -171,17 +172,24 @@
 		9167BBA0291EAAF400B8AC5B /* Marvel Heroes App */ = {
 			isa = PBXGroup;
 			children = (
-				915423872922C55B00B6833F /* Extensions */,
-				915423862922C4D600B6833F /* NetworkManager */,
-				915423812922B97D00B6833F /* Api keys */,
-				911EECC2292008C300AE2F61 /* Models */,
-				911EECC1292008BE00AE2F61 /* Views */,
-				911EECC0292008AF00AE2F61 /* ViewModels */,
-				911EECBC292005AD00AE2F61 /* Resources */,
-				911EECBE292005D500AE2F61 /* Sources */,
 				911EECBF292005F700AE2F61 /* App */,
+				915423862922C4D600B6833F /* NetworkManager */,
+				91EC9B76292E3E6C0048777C /* Main Module */,
+				915423872922C55B00B6833F /* Extensions */,
+				915423812922B97D00B6833F /* Api keys */,
+				911EECBC292005AD00AE2F61 /* Resources */,
 			);
 			path = "Marvel Heroes App";
+			sourceTree = "<group>";
+		};
+		91EC9B76292E3E6C0048777C /* Main Module */ = {
+			isa = PBXGroup;
+			children = (
+				911EECC2292008C300AE2F61 /* Model */,
+				911EECC1292008BE00AE2F61 /* View */,
+				911EECC0292008AF00AE2F61 /* ViewModel */,
+			);
+			path = "Main Module";
 			sourceTree = "<group>";
 		};
 		A52CCE7E8C9B9A05A15E139A /* Frameworks */ = {
@@ -309,7 +317,7 @@
 				9167BBA2291EAAF400B8AC5B /* AppDelegate.swift in Sources */,
 				9167BBA4291EAAF400B8AC5B /* SceneDelegate.swift in Sources */,
 				915423892922C58500B6833F /* String + MD5.swift in Sources */,
-				911EECC72920092300AE2F61 /* CustomHeroesCell.swift in Sources */,
+				91EC9B78292E3F790048777C /* HeroesCustomTableViewCell.swift in Sources */,
 				915423852922C22500B6833F /* Parser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
