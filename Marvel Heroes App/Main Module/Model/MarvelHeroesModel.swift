@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterDataWrapper {
+struct CharacterDataWrapper: Decodable {
     let code: Int?
     let status: String?
     let copyright: String?
@@ -17,15 +17,15 @@ struct CharacterDataWrapper {
     let etag: String?
 }
 
-struct CharacterDataContainer {
+struct CharacterDataContainer: Decodable {
     let offset: Int?
     let limit: Int?
     let total: Int?
     let count: Int?
-    let results: [Character]?
+    var results: [Character]?
 }
 
-struct Character {
+struct Character: Decodable {
     let id: Int?
     let name: String?
     let description: String?
@@ -34,7 +34,7 @@ struct Character {
     let thumbnail: Image?
 }
 
-struct Image {
+struct Image: Decodable {
     let path: String?
     let `extension`: String?
 }
