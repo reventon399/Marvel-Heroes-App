@@ -8,19 +8,9 @@
 import UIKit
 import SnapKit
 
-class HeroesCustomTableViewCell: UITableViewCell {
-
-    static let identifier = "HeroesCustomTableViewCell"
+final class HeroesCustomTableViewCell: UITableViewCell {
     
-    var hero: Character? {
-        didSet {
-            guard let hero = hero else { return }
-            heroNameLabel.text = hero.name
-            heroDescriptionLabel.text = hero.description
-            guard let imageUrl = URL(string: String.getUrlString(image: hero.thumbnail!, variant: ImageSize.standardMedium)) else { return }
-            heroImage.load(url: imageUrl)
-        }
-    }
+    static let identifier = "HeroesCustomTableViewCell"
     
     // MARK: - Outlets
     
@@ -102,6 +92,6 @@ class HeroesCustomTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
-        self.hero = nil
+//        self.hero = nil
     }
 }

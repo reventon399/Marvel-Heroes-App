@@ -16,7 +16,7 @@ extension String {
     }
     
     static func getUrlString(image: Image, variant: String) -> String {
-        return "\(image.path)/\(variant).\(image.extension)"
+        return "\(image.path ?? "nil")/\(variant).\(image.extension ?? "nil")"
     }
 }
 
