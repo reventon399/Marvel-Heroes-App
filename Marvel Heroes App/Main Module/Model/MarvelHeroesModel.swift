@@ -8,12 +8,12 @@
 import Foundation
 
 struct CharacterDataWrapper: Decodable {
-    let code: Int?
+    let code: String?
     let status: String?
     let copyright: String?
     let attributionText: String?
     let attributionHTML: String?
-    let data : CharacterDataContainer?
+    let data : CharacterDataContainer
     let etag: String?
 }
 
@@ -22,7 +22,7 @@ struct CharacterDataContainer: Decodable {
     let limit: Int?
     let total: Int?
     let count: Int?
-    var results: [Character]?
+    var results: [Character]
 }
 
 struct Character: Decodable {
@@ -31,7 +31,7 @@ struct Character: Decodable {
     let description: String?
     let modified: Date?
     let resourceURI: String?
-    let thumbnail: Image?
+    let thumbnail: Image
 }
 
 struct Image: Decodable {

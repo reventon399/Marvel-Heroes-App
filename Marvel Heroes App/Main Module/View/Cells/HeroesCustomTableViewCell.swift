@@ -12,6 +12,17 @@ final class HeroesCustomTableViewCell: UITableViewCell {
     
     static let identifier = "HeroesCustomTableViewCell"
     
+    var hero: Character? {
+        didSet {
+            if let hero = hero {
+                heroNameLabel.text = hero.name
+                heroDescriptionLabel.text = hero.description
+                guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardMedium)) else { return }
+                heroImage.load(url: imageURL)
+            }
+        }
+    }
+    
     // MARK: - Outlets
     
     private lazy var heroView: UIView = {

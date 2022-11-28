@@ -29,6 +29,7 @@ class HeroesViewController: UIViewController {
         viewModel.delegate = self
         setupHierarchy()
         setupLayout()
+        viewModel.getHeroes()
     }
     
     // MARK: - Initializer
@@ -62,11 +63,15 @@ class HeroesViewController: UIViewController {
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel.heroes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = heroesTableView.dequeueReusableCell(withIdentifier: HeroesCustomTableViewCell.identifier, for: indexPath) as? HeroesCustomTableViewCell
+        let heroes = viewModel.heroes[indexPath.row]
+        cell?.hero = heroes
+        cell?.accessoryType = .disclosureIndicator
+        return cell ?? UITableViewCell()
     }
 
 }
@@ -75,7 +80,7 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HeroesViewController: HeroesViewModelDelegate {
     func updateHeroesTableView() {
-    
+        heroesTableView.reloadData()
     }
     
     
