@@ -13,14 +13,13 @@ protocol HeroesViewModelType {
     var delegate: HeroesViewModelDelegate? { get set }
 }
 
-protocol HeroesViewModelDelegate {
+protocol HeroesViewModelDelegate: AnyObject {
     func updateHeroesTableView() 
 }
 
 final class HeroesViewModel: HeroesViewModelType {
     
-    var delegate: HeroesViewModelDelegate?
-    weak var view: HeroesViewController?
+    weak var delegate: HeroesViewModelDelegate?
     
     func getHeroes(url: String, parameters: [String: String]) {
         let request = AF.request(url, method: .get, parameters: parameters)
@@ -31,7 +30,7 @@ final class HeroesViewModel: HeroesViewModelType {
                 print(value)
                 
                 guard let hero = data.value else { return }
-                hero.results = view?.heroes
+//                hero.results = view?.heroes
             case .failure(let error):
                 print(error)
             }
