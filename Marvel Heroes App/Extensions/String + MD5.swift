@@ -15,21 +15,7 @@ extension String {
         return computed.map { String(format: "%02hhx", $0) }.joined()
     }
     
-    static func getUrlString(image: Image, variant: String) -> String {
+    static func getImageUrlString(image: Image, variant: String) -> String {
         return "\(image.path ?? "nil")/\(variant).\(image.extension ?? "nil")"
-    }
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            }
-        }
     }
 }

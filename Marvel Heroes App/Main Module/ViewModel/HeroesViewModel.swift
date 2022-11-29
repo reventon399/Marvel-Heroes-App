@@ -1,5 +1,5 @@
 //
-//  Parser.swift
+//  HeroesViewModel.swift
 //  Marvel Heroes App
 //
 //  Created by Алексей Лосев on 14.11.2022.
@@ -9,38 +9,47 @@ import Foundation
 import Alamofire
 
 protocol HeroesViewModelType {
-    func getHeroes(url: String, parameters: [String: String])
+//    func getHeroes()
     var delegate: HeroesViewModelDelegate? { get set }
+    var heroes: [Character] { get set }
 }
 
-protocol HeroesViewModelDelegate {
+protocol HeroesViewModelDelegate: AnyObject {
     func updateHeroesTableView() 
 }
 
 final class HeroesViewModel: HeroesViewModelType {
+
+    weak var delegate: HeroesViewModelDelegate?
+    var heroes: [Character] = []
     
-    var delegate: HeroesViewModelDelegate?
-    weak var view: HeroesViewController?
     
-    func getHeroes(url: String, parameters: [String: String]) {
-        let request = AF.request(url, method: .get, parameters: parameters)
-        request.responseDecodable(of: CharacterDataContainer.self) { (data) in
-            
-            switch data.result {
-            case .success(let value):
-                print(value)
-                
-                guard let hero = data.value else { return }
-                hero.results = view?.heroes
-            case .failure(let error):
-                print(error)
-            }
-            
-        }
-        
-    }
-    
-   
+//    func getHeroes() {
+//        let urlCreator = HeroesURLCreator()
+//        let url = urlCreator.createURL(apiPath: MarvelHeroesURL.apiPath,
+//                                       path: MarvelHeroesURL.path,
+//                                       timestamp: MarvelHeroesURL.timestamp,
+//                                       publicKey: ApiKeys.publicKey.rawValue)
+//
+//
+//        let request = AF.request(url, method: .get)
+//        request.responseDecodable(of: CharacterDataWrapper.self) { [self] (data) in
+//
+//            switch data.result {
+//            case .success:
+//
+//                guard let hero = data.value else { return }
+//                print(hero)
+//                let heroes = hero.data.results
+//                self.heroes = heroes
+//
+//                delegate?.updateHeroesTableView()
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
 }
 
 

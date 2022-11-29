@@ -9,9 +9,7 @@ import UIKit
 
 class HeroesViewController: UIViewController {
     
-    var viewModel: HeroesViewModelType?
-    
-   
+    var viewModel: HeroesViewModelType
     
     // MARK: - Outlets
     
@@ -28,33 +26,61 @@ class HeroesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        viewModel.delegate = self
         setupHierarchy()
         setupLayout()
+        viewModel.getHeroes()
+    }
+    
+    // MARK: - Initializer
+    
+    init(viewModel: HeroesViewModelType) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     // MARK: - Setup
     
     private func setupHierarchy() {
-        
+        view.addSubview(heroesTableView)
     }
     
     private func setupLayout() {
-        
+        heroesTableView.snp.makeConstraints { make in
+            make.top.right.bottom.left.equalTo(view)
+        }
     }
 
     
 }
 
-//MARK: - Extension
+//MARK: - Extension for TableView
 
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        viewModel.heroes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = heroesTableView.dequeueReusableCell(withIdentifier: HeroesCustomTableViewCell.identifier, for: indexPath) as? HeroesCustomTableViewCell
+        let heroes = viewModel.heroes[indexPath.row]
+        cell?.hero = heroes
+        cell?.accessoryType = .disclosureIndicator
+        return cell ?? UITableViewCell()
+    }
+
+}
+
+// MARK: - Extension for ViewModel
+
+extension HeroesViewController: HeroesViewModelDelegate {
+    func updateHeroesTableView() {
+        heroesTableView.reloadData()
     }
     
     
