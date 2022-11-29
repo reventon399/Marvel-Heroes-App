@@ -26,7 +26,7 @@ enum MarvelHeroesURL {
     }
 }
 
-class HeroesURLCreator {
+class NetworkManager {
 
     private func createHash() -> String {
         MarvelHeroesURL.timestamp + ApiKeys.privateKey.rawValue + ApiKeys.publicKey.rawValue.MD5
