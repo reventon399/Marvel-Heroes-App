@@ -18,7 +18,7 @@ final class HeroesCustomTableViewCell: UITableViewCell {
                 heroNameLabel.text = hero.name
                 heroDescriptionLabel.text = hero.description
                 guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardMedium)) else { return }
-                heroImage.load(url: imageURL)
+                heroImage.loadImageView(url: imageURL)
             }
         }
     }
