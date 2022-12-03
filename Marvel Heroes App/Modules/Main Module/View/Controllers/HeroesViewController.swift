@@ -60,7 +60,7 @@ final class HeroesViewController: UIViewController {
     }
 }
 
-//MARK: - Extension for TableView
+//MARK: - TableView Extension
 
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -81,7 +81,7 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-// MARK: - Extension for ViewModel
+// MARK: - ViewModel Extension
 
 extension HeroesViewController: HeroesViewModelDelegate {
     func updateUI(heroes: [Result]) {
