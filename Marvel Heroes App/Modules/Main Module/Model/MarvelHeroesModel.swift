@@ -7,34 +7,73 @@
 
 import Foundation
 
-struct CharacterDataWrapper: Decodable {
-    let code: String?
-    let status: String?
-    let copyright: String?
-    let attributionText: String?
-    let attributionHTML: String?
-    let data : CharacterDataContainer
-    let etag: String?
+// MARK: - HeroesData
+struct HeroesData: Codable {
+    var data: HeroesDataContainer?
 }
 
-struct CharacterDataContainer: Decodable {
-    let offset: Int?
-    let limit: Int?
-    let total: Int?
-    let count: Int?
-    var results: [Character]
+// MARK: - HeroesDataContainer
+struct HeroesDataContainer: Codable {
+    var results: [Result]?
 }
 
-struct Character: Decodable {
-    let id: Int?
-    let name: String?
-    let description: String?
-    let modified: Date?
-    let resourceURI: String?
-    let thumbnail: Image
+// MARK: - Result
+struct Result: Codable {
+    var name: String?
+    var description: String?
+    var thumbnail: Thumbnail?
+//    let comics, series: Comics
+//    let stories: Stories
+//    let events: Comics
 }
 
-struct Image: Decodable {
-    let path: String?
-    let `extension`: String?
+// MARK: - Comics
+//struct Comics: Codable {
+//    let available: Int
+//    let collectionURI: String
+//    let items: [ComicsItem]
+//    let returned: Int
+//}
+
+// MARK: - ComicsItem
+//struct ComicsItem: Codable {
+//    let resourceURI: String
+//    let name: String
+//}
+
+// MARK: - Stories
+//struct Stories: Codable {
+//    let available: Int
+//    let collectionURI: String
+//    let items: [StoriesItem]
+//    let returned: Int
+//}
+
+// MARK: - StoriesItem
+//struct StoriesItem: Codable {
+//    let resourceURI: String
+//    let name: String
+//    let type: ItemType
+//}
+//
+//enum ItemType: String, Codable {
+//    case cover = "cover"
+//    case empty = ""
+//    case interiorStory = "interiorStory"
+//}
+
+// MARK: - Thumbnail
+struct Thumbnail: Codable {
+    var path: String?
+    var thumbnailExtension: Extension?
+    
+    enum CodingKeys: String, CodingKey {
+        case path
+        case thumbnailExtension = "extension"
+    }
+}
+
+enum Extension: String, Codable {
+    case gif = "gif"
+    case jpg = "jpg"
 }
