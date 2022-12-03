@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - HeroesData
-struct HeroesData: Codable {
-    var data: HeroesDataContainer?
+// MARK: - Welcome
+struct Welcome: Codable {
+    var data: DataClass?
 }
 
-// MARK: - HeroesDataContainer
-struct HeroesDataContainer: Codable {
+// MARK: - DataClass
+struct DataClass: Codable {
     var results: [Result]?
 }
 
@@ -77,3 +77,4 @@ enum Extension: String, Codable {
     case gif = "gif"
     case jpg = "jpg"
 }
+

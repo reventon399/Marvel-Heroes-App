@@ -26,21 +26,21 @@ final class HeroesCustomTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     private lazy var heroView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .systemGray4
         view.layer.cornerRadius = 30
         return view
     }()
     
     private lazy var heroImage: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.layer.cornerRadius = 29
         image.clipsToBounds = true
         return image
     }()
     
     private lazy var heroNameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textColor = .black
         return label
     }()

@@ -13,7 +13,7 @@ final class NetworkManager {
     private var publicKey = "e1198af2a04c8e71fbe11a5b2f5de361"
     private var privateKey = "61e5bc3ae975a2d192a9512ad456d7e16c41757f"
     
-    private func createURL(publicKey: String, privateKey: String) -> String {
+    public func getURL(publicKey: String, privateKey: String) -> String {
         let date = Date()
         let format = DateFormatter()
         format.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -25,16 +25,15 @@ final class NetworkManager {
         urlComponents.path = "/v1/public/characters"
         urlComponents.queryItems = [
             URLQueryItem(name: "ts", value: timestamp),
-            URLQueryItem(name: "apiKey", value: publicKey),
-            URLQueryItem(name: "hash", value: (timestamp + publicKey + privateKey).MD5)]
-        
-        return urlComponents.url?.absoluteString ?? "Беды с URL"
+            URLQueryItem(name: "apikey", value: publicKey),
+            URLQueryItem(name: "hash", value: (timestamp + privateKey + publicKey).MD5)]
+        return urlComponents.url!.absoluteString
     }
     
     func getHeroes(_ completion: @escaping ([Result]) -> Void) {
-        let url = createURL(publicKey: publicKey, privateKey: privateKey)
-        let request = AF.request(url, method: .get)
-        request.responseDecodable(of: HeroesData.self) { result in
+        let url = getURL(publicKey: publicKey, privateKey: privateKey)
+        print(url)
+        _ = AF.request(url).responseDecodable(of: Welcome.self) { result in
             switch result.result {
             case .success(let data):
                 print(data.data?.results ?? [])
