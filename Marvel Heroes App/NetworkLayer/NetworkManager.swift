@@ -12,33 +12,15 @@ import Alamofire
 
 class NetworkManager {
     
-    var viewModel: HeroesViewModel?
-
-    enum MarvelHeroesURL {
-        
-        static var scheme: String {
-            "https://"
-        }
-        static var host: String {
-            "gateway.marvel.com"
-        }
-        static var apiPath: String {
-            "https://" + host
-        }
-        static var path: String {
-            "/v1/public/characters"
-        }
-        static var timestamp: String {
-            Date().timeIntervalSince1970.description
-        }
-    }
-    
-    private func createHash() -> String {
-        MarvelHeroesURL.timestamp + ApiKeys.privateKey.rawValue + ApiKeys.publicKey.rawValue.MD5
-    }
+    var publicKey = "e1198af2a04c8e71fbe11a5b2f5de361"
+    var privateKey = "61e5bc3ae975a2d192a9512ad456d7e16c41757f"
     
     private func createURL() -> String {
-        let hash = createHash()
+        let date = Date()
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let timestamp = format.string(from: date)
+        
         var urlComponents = URLComponents()
         urlComponents.scheme = MarvelHeroesURL.scheme
         urlComponents.host = MarvelHeroesURL.host
