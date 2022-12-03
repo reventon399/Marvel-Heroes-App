@@ -6,32 +6,28 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol HeroesViewModelType {
     var delegate: HeroesViewModelDelegate? { get set }
-    var heroes: [Character] { get set }
+    var heroes: [Result] { get set }
     
     func updateHeroes()
 }
 
 protocol HeroesViewModelDelegate: AnyObject {
-    func updateHeroesTableView()
-    func updateUI()
+    func updateUI(heroes: [Result])
 }
 
 final class HeroesViewModel: HeroesViewModelType {
-  
 
     weak var delegate: HeroesViewModelDelegate?
-    var heroes: [Character] = []
+    var heroes: [Result] = []
     var networkManager: NetworkManager?
 
     func updateHeroes() {
-//        networkManager?.getHeroes({
-//
-//        })
+        networkManager?.getHeroes({ heroes in
+            self.heroes = heroes
+            self.delegate?.updateUI(heroes: heroes)
+        })
     }
 }
-
-
