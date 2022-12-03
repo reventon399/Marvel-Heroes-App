@@ -34,9 +34,10 @@ class NetworkManager {
     func getHeroes(_ completion: @escaping ([Result]) -> Void) {
         let url = createURL(publicKey: publicKey, privateKey: privateKey)
         let request = AF.request(url, method: .get)
-        request.responseDecodable(of: Welcome.self) { result in
+        request.responseDecodable(of: HeroesData.self) { result in
             switch result.result {
             case .success(let data):
+                print(data.data?.results ?? [])
                 completion(data.data?.results ?? [])
             case .failure(let error):
                 print("Error in Decoding - \(error)")
