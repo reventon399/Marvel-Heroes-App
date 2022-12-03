@@ -29,7 +29,7 @@ class HeroesViewController: UIViewController {
         viewModel.delegate = self
         setupHierarchy()
         setupLayout()
-        viewModel.getHeroes()
+        viewModel.networkManager?.getHeroes()
     }
     
     // MARK: - Initializer

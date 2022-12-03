@@ -179,18 +179,45 @@
 		9167BBA0291EAAF400B8AC5B /* Marvel Heroes App */ = {
 			isa = PBXGroup;
 			children = (
+				911EECBF292005F700AE2F61 /* App */,
 				91EC9B7E2933BB0C0048777C /* Injector.swift */,
 				91EC9B79292E46B80048777C /* Enum */,
-				911EECBF292005F700AE2F61 /* App */,
 				915423862922C4D600B6833F /* NetworkLayer */,
-				91EC9B76292E3E6C0048777C /* Main Module */,
+				91EC9B76292E3E6C0048777C /* Modules */,
 				915423872922C55B00B6833F /* Extensions */,
 				911EECBC292005AD00AE2F61 /* Resources */,
 			);
 			path = "Marvel Heroes App";
 			sourceTree = "<group>";
 		};
-		91EC9B76292E3E6C0048777C /* Main Module */ = {
+		91EC9B76292E3E6C0048777C /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				91EC9B82293771EC0048777C /* Detail Module */,
+				91EC9B84293772200048777C /* Main Module */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		91EC9B79292E46B80048777C /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				91EC9B7A292E46D60048777C /* ImageSize.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		91EC9B82293771EC0048777C /* Detail Module */ = {
+			isa = PBXGroup;
+			children = (
+				91EC9B872937723E0048777C /* Model */,
+				91EC9B862937723A0048777C /* View */,
+				91EC9B85293772340048777C /* ViewModel */,
+			);
+			path = "Detail Module";
+			sourceTree = "<group>";
+		};
+		91EC9B84293772200048777C /* Main Module */ = {
 			isa = PBXGroup;
 			children = (
 				911EECC2292008C300AE2F61 /* Model */,
@@ -200,12 +227,25 @@
 			path = "Main Module";
 			sourceTree = "<group>";
 		};
-		91EC9B79292E46B80048777C /* Enum */ = {
+		91EC9B85293772340048777C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				91EC9B7A292E46D60048777C /* ImageSize.swift */,
 			);
-			path = Enum;
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		91EC9B862937723A0048777C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		91EC9B872937723E0048777C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FE304974C007451B460FC3C2 /* Pods */ = {
