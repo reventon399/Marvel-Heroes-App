@@ -12,7 +12,7 @@ final class HeroesCustomTableViewCell: UITableViewCell {
     
     static let identifier = "HeroesCustomTableViewCell"
     
-    var hero: Character? {
+    var hero: Result? {
         didSet {
             if let hero = hero {
                 heroNameLabel.text = hero.name

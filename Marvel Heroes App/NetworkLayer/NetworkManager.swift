@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-class NetworkManager {
+final class NetworkManager {
     
     private var publicKey = "e1198af2a04c8e71fbe11a5b2f5de361"
     private var privateKey = "61e5bc3ae975a2d192a9512ad456d7e16c41757f"

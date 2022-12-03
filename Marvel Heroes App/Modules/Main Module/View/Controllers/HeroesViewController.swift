@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HeroesViewController: UIViewController {
+final class HeroesViewController: UIViewController {
     
     var viewModel: HeroesViewModelType
     var results = [Result]()
@@ -69,25 +69,23 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.heroes.count
+        results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = heroesTableView.dequeueReusableCell(withIdentifier: HeroesCustomTableViewCell.identifier, for: indexPath) as? HeroesCustomTableViewCell
-        let heroes = viewModel.heroes[indexPath.row]
+        let heroes = results[indexPath.row]
         cell?.hero = heroes
         cell?.accessoryType = .disclosureIndicator
         return cell ?? UITableViewCell()
     }
-
 }
 
 // MARK: - Extension for ViewModel
 
 extension HeroesViewController: HeroesViewModelDelegate {
-    func updateHeroesTableView() {
+    func updateUI(heroes: [Result]) {
+        results = heroes
         heroesTableView.reloadData()
     }
-    
-    
 }
