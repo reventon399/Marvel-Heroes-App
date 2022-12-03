@@ -26,6 +26,7 @@ class HeroesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
         setupHierarchy()
         setupLayout()
     }
@@ -57,13 +58,15 @@ class HeroesViewController: UIViewController {
             make.top.right.bottom.left.equalTo(view)
         }
     }
-
-    
 }
 
 //MARK: - Extension for TableView
 
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        77
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.heroes.count
