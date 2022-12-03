@@ -15,6 +15,6 @@ extension String {
     }
     
     static func getImageUrlString(image: Thumbnail, variant: String) -> String {
-        return "\(image.path ?? "")/\(variant).\(String(describing: image.thumbnailExtension?.rawValue))"
+        return "\(image.path )/\(variant).\(String(describing: image.thumbnailExtension.rawValue))"
     }
 }

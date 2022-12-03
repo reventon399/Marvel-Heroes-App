@@ -79,6 +79,13 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         cell?.accessoryType = .disclosureIndicator
         return cell ?? UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
+        tableView.deselectRow(at: indexPath, animated: true)
+//        viewController.results[indexPath.row]
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
 // MARK: - ViewModel Extension

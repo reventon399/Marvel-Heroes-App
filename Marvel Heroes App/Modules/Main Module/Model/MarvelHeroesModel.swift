@@ -64,8 +64,8 @@ struct Result: Codable {
 
 // MARK: - Thumbnail
 struct Thumbnail: Codable {
-    var path: String?
-    var thumbnailExtension: Extension?
+    var path: String
+    var thumbnailExtension: Extension
     
     enum CodingKeys: String, CodingKey {
         case path
