@@ -10,6 +10,7 @@ import UIKit
 class HeroesViewController: UIViewController {
     
     var viewModel: HeroesViewModelType
+    var results = [Result]()
     
     // MARK: - Outlets
     
@@ -18,7 +19,6 @@ class HeroesViewController: UIViewController {
         tableView.register(HeroesCustomTableViewCell.self, forCellReuseIdentifier: HeroesCustomTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
-        
         return tableView
     }()
     
@@ -26,10 +26,8 @@ class HeroesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
         setupHierarchy()
         setupLayout()
-        viewModel.networkManager?.getHeroes()
     }
     
     // MARK: - Initializer
@@ -44,6 +42,11 @@ class HeroesViewController: UIViewController {
     }
     
     // MARK: - Setup
+    
+    private func setupView() {
+        viewModel.delegate = self
+        viewModel.updateHeroes()
+    }
     
     private func setupHierarchy() {
         view.addSubview(heroesTableView)
