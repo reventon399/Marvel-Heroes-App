@@ -16,8 +16,8 @@ final class HeroesCustomTableViewCell: UITableViewCell {
         didSet {
             if let hero = hero {
                 heroNameLabel.text = hero.name
-                heroDescriptionLabel.text = hero.description
-                guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail!, variant: hero.thumbnail?.thumbnailExtension.rawValue ?? "")) else { return }
+                heroDescriptionLabel.text = hero.description!.isEmpty ? "Information not available" : hero.description
+                guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardMedium)) else { return }
                 heroImage.loadImageView(url: imageURL)
             }
         }
@@ -35,6 +35,8 @@ final class HeroesCustomTableViewCell: UITableViewCell {
     private lazy var heroImage: UIImageView = {
         let image = UIImageView()
         image.layer.cornerRadius = 29
+        image.contentMode = .scaleAspectFit
+        
         image.clipsToBounds = true
         return image
     }()
@@ -49,7 +51,8 @@ final class HeroesCustomTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 1
+        label.numberOfLines = 2
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
@@ -71,7 +74,7 @@ final class HeroesCustomTableViewCell: UITableViewCell {
         addSubview(heroNameLabel)
         addSubview(heroDescriptionLabel)
         addSubview(heroView)
-        addSubview(heroImage)
+        heroView.addSubview(heroImage)
     }
     
     private func setupLayout() {

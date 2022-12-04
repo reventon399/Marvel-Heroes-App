@@ -1,5 +1,5 @@
 //
-//  HeroesURLCreator.swift
+//  NetworkManager.swift
 //  Marvel Heroes App
 //
 //  Created by Алексей Лосев on 27.11.2022.

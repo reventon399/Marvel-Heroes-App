@@ -19,6 +19,7 @@ final class HeroesViewController: UIViewController {
         tableView.register(HeroesCustomTableViewCell.self, forCellReuseIdentifier: HeroesCustomTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
+        
         return tableView
     }()
     
@@ -45,6 +46,8 @@ final class HeroesViewController: UIViewController {
     // MARK: - Setup
     
     private func setupView() {
+        title = "Heroes"
+        navigationController?.navigationBar.prefersLargeTitles = true
         viewModel.delegate = self
         viewModel.updateHeroes()
     }
@@ -82,8 +85,10 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = DetailViewController()
+        let heroes = results[indexPath.row]
+        viewController.detailHero = heroes
         tableView.deselectRow(at: indexPath, animated: true)
-//        viewController.results[indexPath.row]
+        
         navigationController?.pushViewController(viewController, animated: true)
     }
 }

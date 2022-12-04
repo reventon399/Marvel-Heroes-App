@@ -12,6 +12,17 @@ class DetailViewController: UIViewController {
     
     var results = [Result]()
     
+    var detailHero: Result? {
+        didSet {
+            if let hero = detailHero {
+//                cellNameLabel.text = hero.name
+                cellNameLabel.text = hero.description!.isEmpty ? "Information not available" : hero.description
+                guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardFantastic)) else { return }
+                cellIconImageView.loadImageView(url: imageURL)
+            }
+        }
+    }
+    
     //MARK: - Outlets
     
     lazy var imageContainer: UIView = {
@@ -23,7 +34,7 @@ class DetailViewController: UIViewController {
     
     lazy var cellNameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -37,8 +48,11 @@ class DetailViewController: UIViewController {
         return imageView
     }()
 
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupBackgroundColor()
         setupHierarchy()
         setupLayout()
     }
@@ -66,6 +80,10 @@ class DetailViewController: UIViewController {
             make.left.equalTo(view.snp.left).offset(20)
             make.right.equalTo(view.snp.right).offset(-20)
         }
+    }
+    
+    private func setupBackgroundColor() {
+        view.backgroundColor = .white
     }
     
 }
