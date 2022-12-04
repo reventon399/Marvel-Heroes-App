@@ -7,9 +7,10 @@
 
 import UIKit
 
-class HeroesViewController: UIViewController {
+final class HeroesViewController: UIViewController {
     
     var viewModel: HeroesViewModelType
+    var results = [Result]()
     
     // MARK: - Outlets
     
@@ -26,10 +27,9 @@ class HeroesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.delegate = self
+        setupView()
         setupHierarchy()
         setupLayout()
-        viewModel.networkManager?.getHeroes()
     }
     
     // MARK: - Initializer
@@ -45,6 +45,13 @@ class HeroesViewController: UIViewController {
     
     // MARK: - Setup
     
+    private func setupView() {
+        title = "Heroes"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        viewModel.delegate = self
+        viewModel.updateHeroes()
+    }
+    
     private func setupHierarchy() {
         view.addSubview(heroesTableView)
     }
@@ -54,34 +61,43 @@ class HeroesViewController: UIViewController {
             make.top.right.bottom.left.equalTo(view)
         }
     }
-
-    
 }
 
-//MARK: - Extension for TableView
+//MARK: - TableView Extension
 
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        77
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.heroes.count
+        results.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = heroesTableView.dequeueReusableCell(withIdentifier: HeroesCustomTableViewCell.identifier, for: indexPath) as? HeroesCustomTableViewCell
-        let heroes = viewModel.heroes[indexPath.row]
+        let heroes = results[indexPath.row]
         cell?.hero = heroes
         cell?.accessoryType = .disclosureIndicator
         return cell ?? UITableViewCell()
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = DetailViewController()
+        let heroes = results[indexPath.row]
+        viewController.detailHero = heroes
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        navigationController?.pushViewController(viewController, animated: true)
+    }
 }
 
-// MARK: - Extension for ViewModel
+// MARK: - ViewModel Extension
 
 extension HeroesViewController: HeroesViewModelDelegate {
-    func updateHeroesTableView() {
+    func updateUI(heroes: [Result]) {
+        results = heroes
         heroesTableView.reloadData()
     }
-    
-    
 }

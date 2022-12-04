@@ -12,11 +12,11 @@ final class HeroesCustomTableViewCell: UITableViewCell {
     
     static let identifier = "HeroesCustomTableViewCell"
     
-    var hero: Character? {
+    var hero: Result? {
         didSet {
             if let hero = hero {
                 heroNameLabel.text = hero.name
-                heroDescriptionLabel.text = hero.description
+                heroDescriptionLabel.text = hero.description!.isEmpty ? "Information not available" : hero.description
                 guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardMedium)) else { return }
                 heroImage.loadImageView(url: imageURL)
             }
@@ -26,21 +26,23 @@ final class HeroesCustomTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     private lazy var heroView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .systemGray4
         view.layer.cornerRadius = 30
         return view
     }()
     
     private lazy var heroImage: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.layer.cornerRadius = 29
+        image.contentMode = .scaleAspectFit
+        
         image.clipsToBounds = true
         return image
     }()
     
     private lazy var heroNameLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.textColor = .black
         return label
     }()
@@ -49,7 +51,8 @@ final class HeroesCustomTableViewCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .systemGray
         label.font = UIFont.systemFont(ofSize: 14)
-        label.numberOfLines = 1
+        label.numberOfLines = 2
+        label.lineBreakMode = .byTruncatingTail
         return label
     }()
     
@@ -71,7 +74,7 @@ final class HeroesCustomTableViewCell: UITableViewCell {
         addSubview(heroNameLabel)
         addSubview(heroDescriptionLabel)
         addSubview(heroView)
-        addSubview(heroImage)
+        heroView.addSubview(heroImage)
     }
     
     private func setupLayout() {
@@ -103,6 +106,6 @@ final class HeroesCustomTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         self.accessoryType = .none
-//        self.hero = nil
+        self.hero = nil
     }
 }

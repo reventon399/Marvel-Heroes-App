@@ -7,13 +7,13 @@
 
 import Foundation
 
-// MARK: - HeroesData
-struct HeroesData: Codable {
-    var data: HeroesDataContainer?
+// MARK: - Welcome
+struct Welcome: Codable {
+    var data: DataClass?
 }
 
-// MARK: - HeroesDataContainer
-struct HeroesDataContainer: Codable {
+// MARK: - DataClass
+struct DataClass: Codable {
     var results: [Result]?
 }
 
@@ -21,7 +21,7 @@ struct HeroesDataContainer: Codable {
 struct Result: Codable {
     var name: String?
     var description: String?
-    var thumbnail: Thumbnail?
+    var thumbnail: Thumbnail
 //    let comics, series: Comics
 //    let stories: Stories
 //    let events: Comics
@@ -64,16 +64,7 @@ struct Result: Codable {
 
 // MARK: - Thumbnail
 struct Thumbnail: Codable {
-    var path: String?
-    var thumbnailExtension: Extension?
-    
-    enum CodingKeys: String, CodingKey {
-        case path
-        case thumbnailExtension = "extension"
-    }
+    let path: String
+    let `extension`: String
 }
 
-enum Extension: String, Codable {
-    case gif = "gif"
-    case jpg = "jpg"
-}
