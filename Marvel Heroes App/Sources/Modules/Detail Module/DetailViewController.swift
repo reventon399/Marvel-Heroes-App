@@ -10,12 +10,9 @@ import SnapKit
 
 class DetailViewController: UIViewController {
     
-    var results = [Result]()
-    
     var detailHero: Result? {
         didSet {
             if let hero = detailHero {
-//                cellNameLabel.text = hero.name
                 cellNameLabel.text = hero.description!.isEmpty ? "Information not available" : hero.description
                 guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardFantastic)) else { return }
                 cellIconImageView.loadImageView(url: imageURL)
@@ -85,5 +82,4 @@ class DetailViewController: UIViewController {
     private func setupBackgroundColor() {
         view.backgroundColor = .white
     }
-    
 }

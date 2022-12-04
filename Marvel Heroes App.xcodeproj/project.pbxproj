@@ -58,25 +58,21 @@
 		911EECBC292005AD00AE2F61 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				911EECBE292005D500AE2F61 /* Sources */,
 				9167BBAA291EAB1000B8AC5B /* Assets.xcassets */,
-				911EECBD292005BC00AE2F61 /* Configuration */,
+				9167BBAF291EAB1000B8AC5B /* Info.plist */,
+				9167BBAC291EAB1000B8AC5B /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		911EECBD292005BC00AE2F61 /* Configuration */ = {
-			isa = PBXGroup;
-			children = (
-				9167BBAF291EAB1000B8AC5B /* Info.plist */,
-			);
-			path = Configuration;
 			sourceTree = "<group>";
 		};
 		911EECBE292005D500AE2F61 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				9167BBAC291EAB1000B8AC5B /* LaunchScreen.storyboard */,
+				911EECBF292005F700AE2F61 /* App */,
+				91EC9B79292E46B80048777C /* Enum */,
+				915423862922C4D600B6833F /* NetworkLayer */,
+				91EC9B76292E3E6C0048777C /* Modules */,
+				915423872922C55B00B6833F /* Extensions */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -168,11 +164,7 @@
 		9167BBA0291EAAF400B8AC5B /* Marvel Heroes App */ = {
 			isa = PBXGroup;
 			children = (
-				911EECBF292005F700AE2F61 /* App */,
-				91EC9B79292E46B80048777C /* Enum */,
-				915423862922C4D600B6833F /* NetworkLayer */,
-				91EC9B76292E3E6C0048777C /* Modules */,
-				915423872922C55B00B6833F /* Extensions */,
+				911EECBE292005D500AE2F61 /* Sources */,
 				911EECBC292005AD00AE2F61 /* Resources */,
 			);
 			path = "Marvel Heroes App";
@@ -476,7 +468,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66ZXKDA6XW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Marvel Heroes App/Resources/Configuration/Info.plist";
+				INFOPLIST_FILE = "Marvel Heroes App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -504,7 +496,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 66ZXKDA6XW;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Marvel Heroes App/Resources/Configuration/Info.plist";
+				INFOPLIST_FILE = "Marvel Heroes App/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
