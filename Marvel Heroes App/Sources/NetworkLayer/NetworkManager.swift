@@ -33,7 +33,7 @@ final class NetworkManager {
     func getHeroes(_ completion: @escaping ([Result]) -> Void) {
         let url = getURL(publicKey: publicKey, privateKey: privateKey)
         print(url)
-        _ = AF.request(url).responseDecodable(of: Welcome.self) { result in
+        _ = AF.request(url).responseDecodable(of: HeroesData.self) { result in
             switch result.result {
             case .success(let data):
                 print(data.data?.results ?? [])

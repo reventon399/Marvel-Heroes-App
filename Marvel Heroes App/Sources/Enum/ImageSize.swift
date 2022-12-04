@@ -8,6 +8,7 @@
 import Foundation
 
 enum ImageSize {
+    
     static let portraitSmall = "portrait_small"
     static let portraitMedium = "portrait_medium"
     static let portraitExtraLarge = "portrait_xlarge"
