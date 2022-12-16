@@ -21,7 +21,6 @@ final class HeroesCustomTableViewCell: UITableViewCell {
                     image: hero.thumbnail,
                     variant: ImageSize.standardMedium) ?? "") else {
                     heroImage.image = UIImage(named: "placeholder")
-                    
                     return
                 }
                 heroImage.loadImageView(url: imageURL)

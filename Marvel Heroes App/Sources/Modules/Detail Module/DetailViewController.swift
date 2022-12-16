@@ -8,7 +8,10 @@
 import UIKit
 import SnapKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
+    
+    let heroesCustomTableViewCell = HeroesCustomTableViewCell()
+    
     
     var detailHero: Result? {
         didSet {
