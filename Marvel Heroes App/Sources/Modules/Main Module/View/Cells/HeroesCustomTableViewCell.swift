@@ -19,7 +19,11 @@ final class HeroesCustomTableViewCell: UITableViewCell {
                 heroDescriptionLabel.text = hero.description!.isEmpty ? "Information not available" : hero.description
                 guard let imageURL = URL(string: String.getImageUrlString(
                     image: hero.thumbnail,
-                    variant: ImageSize.standardMedium)) else { return }
+                    variant: ImageSize.standardMedium) ?? "") else {
+                    heroImage.image = UIImage(named: "placeholder")
+                    
+                    return
+                }
                 heroImage.loadImageView(url: imageURL)
             }
         }
@@ -38,7 +42,6 @@ final class HeroesCustomTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.layer.cornerRadius = 29
         image.contentMode = .scaleAspectFit
-        
         image.clipsToBounds = true
         return image
     }()
@@ -100,7 +103,7 @@ final class HeroesCustomTableViewCell: UITableViewCell {
         heroDescriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(heroNameLabel.snp.bottom).offset(10)
             make.left.equalTo(heroView.snp.right).offset(20)
-            make.right.equalTo(self).offset(-20)
+            make.right.equalTo(self).offset(-40)
         }
     }
     

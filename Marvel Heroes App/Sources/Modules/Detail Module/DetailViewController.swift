@@ -14,7 +14,10 @@ class DetailViewController: UIViewController {
         didSet {
             if let hero = detailHero {
                 cellNameLabel.text = hero.description!.isEmpty ? "Information not available" : hero.description
-                guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardFantastic)) else { return }
+                guard let imageURL = URL(string: String.getImageUrlString(image: hero.thumbnail, variant: ImageSize.standardFantastic) ?? "") else {
+                    cellIconImageView.image = UIImage(named: "placeholder")
+                    return
+                }
                 cellIconImageView.loadImageView(url: imageURL)
             }
         }
@@ -24,6 +27,7 @@ class DetailViewController: UIViewController {
     
     lazy var imageContainer: UIView = {
         let view = UIView()
+        view.backgroundColor = .red
         view.layer.cornerRadius = 8
         view.clipsToBounds = true
         return view
@@ -41,6 +45,8 @@ class DetailViewController: UIViewController {
         let imageView = UIImageView()
         imageView.tintColor = .white
         imageView.contentMode = .scaleAspectFit
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = CGColor(red: 100, green: 0, blue: 0, alpha: 1)
         imageView.clipsToBounds = true
         return imageView
     }()

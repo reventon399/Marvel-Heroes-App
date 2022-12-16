@@ -8,25 +8,30 @@
 import Foundation
 
 // MARK: - HeroesData
-struct HeroesData: Codable {
+struct HeroesData: Decodable {
     var data: HeroesDataContainer?
 }
 
 // MARK: - HeroesDataContainer
-struct HeroesDataContainer: Codable {
+struct HeroesDataContainer: Decodable {
     var results: [Result]?
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Result: Decodable {
     var name: String?
     var description: String?
     var thumbnail: Thumbnail
 }
 
 // MARK: - Thumbnail
-struct Thumbnail: Codable {
+struct Thumbnail: Decodable {
     let path: String
-    let `extension`: String
+    let imageExtension: String
+    
+    enum CodingKeys: String, CodingKey {
+        case path
+        case imageExtension = "extension"
+    }
 }
 

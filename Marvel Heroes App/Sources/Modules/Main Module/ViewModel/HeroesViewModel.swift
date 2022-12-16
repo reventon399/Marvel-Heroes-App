@@ -28,7 +28,10 @@ final class HeroesViewModel: HeroesViewModelType {
     func updateHeroes() {
         networkManager.getHeroes({ heroes in
             self.heroes = heroes
-            self.delegate?.updateUI(heroes: heroes)
+            DispatchQueue.main.async {
+                self.delegate?.updateUI(heroes: heroes)
+            }
+            
         })
     }
 }

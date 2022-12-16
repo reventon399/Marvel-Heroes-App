@@ -19,7 +19,7 @@ final class HeroesViewController: UIViewController {
         tableView.register(HeroesCustomTableViewCell.self, forCellReuseIdentifier: HeroesCustomTableViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
-        
+        tableView.prefetchDataSource = self
         return tableView
     }()
     
@@ -65,7 +65,10 @@ final class HeroesViewController: UIViewController {
 
 //MARK: - TableView Extension
 
-extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
+extension HeroesViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+
+    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         77
