@@ -10,7 +10,7 @@ import SnapKit
 
 final class DetailViewController: UIViewController {
     
-    let heroesCustomTableViewCell = HeroesCustomTableViewCell()
+//    let heroesCustomTableViewCell = HeroesCustomTableViewCell()
     
     
     var detailHero: Result? {

@@ -16,14 +16,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         let viewModel = HeroesViewModel()
-//        let networkManager = NetworkManager()
-//        networkManager.getHeroes ({ heroes in
-//            viewModel.heroes = heroes
-//            DispatchQueue.main.async {
-//                viewModel.delegate?.updateUI(heroes: heroes)
-//            }
-//        })
-        
         let viewController = HeroesViewController(viewModel: viewModel)
         let navigationViewController = UINavigationController(rootViewController: viewController)
         window?.rootViewController = navigationViewController

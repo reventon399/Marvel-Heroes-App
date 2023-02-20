@@ -63,7 +63,7 @@ final class HeroesViewController: UIViewController {
     }
 }
 
-//MARK: - TableView Extension
+//MARK: - TableView Extensions
 
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource, UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {

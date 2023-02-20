@@ -24,14 +24,13 @@ final class HeroesViewModel: HeroesViewModelType {
     weak var delegate: HeroesViewModelDelegate?
     var heroes: [Result] = []
     var networkManager = NetworkManager()
-
+    
     func updateHeroes() {
-        networkManager.getHeroes({ heroes in
-            self.heroes = heroes
+        networkManager.getHeroes() { [weak self] heroes in
+            self?.heroes = heroes
             DispatchQueue.main.async {
-                self.delegate?.updateUI(heroes: heroes)
+                self?.delegate?.updateUI(heroes: heroes)
             }
-            
-        })
+        }
     }
 }
